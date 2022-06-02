@@ -1,9 +1,9 @@
 import Decimal from "../decimal/decimal.js";
 
-// An instance of the Decimal class, used to evaluate numbers to 25 digits.
+// An instance of the Decimal class, used to evaluate numbers to 100 digits.
 // Probably about 20 digits would be enough, but better safe than sorry.
 const decimal = Decimal.set({
-    precision: 25
+    precision: 100
 });
 
 // Shorthand for 2π.
