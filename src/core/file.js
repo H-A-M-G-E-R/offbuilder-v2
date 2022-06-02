@@ -113,8 +113,8 @@ export const importCoordinates = function(event) {
 		// Two d-dimensional elements have a common face iff they have at least
 		// d common vertices and are not contained in (d - 2)-dimensional space.
 		for(let i = 0; i < len; i++) {
-			// For very long calculations, logs progress every 5s.
-			if(Date.now() - time > 5000) {
+			// For very short calculations, logs progress every 5s.
+			if(Date.now() - time > 0) {
 				console.log(`Dimension: ${d}. Progress: ${iter / total}%.`);
 				time = Date.now();
 			}
@@ -144,7 +144,7 @@ export const importCoordinates = function(event) {
 
 					// If not, adds the element to the element list and the 
 					// corresponding parent elements.
-					if(duplicate === null) {
+					if(duplicate === null && newE11.length != 1 && newE12.length != 1) {
 						const idx = dm1Elements.size;
 						commonElements.index = idx;
 
