@@ -155,7 +155,7 @@ export const importCoordinates = function(event) {
 
 					// Otherwise, only adds the element to the corresponding
 					// parent elements.
-					elif (newEl1.length != 1 && newEl2.length != 1) {
+					elif (newEl1.length != 1 && newEl2.length != 1)
 						const idx = duplicate.key.index;
 
 						if(newEl1.indexOf(idx) === -1)
