@@ -144,7 +144,7 @@ export const importCoordinates = function(event) {
 
 					// If not, adds the element to the element list and the 
 					// corresponding parent elements.
-					if((duplicate === null && newE11.length != 1) && newE12.length != 1) {
+					if(duplicate === null && newEl1.length != 1 && newEl2.length != 1) {
 						const idx = dm1Elements.size;
 						commonElements.index = idx;
 
