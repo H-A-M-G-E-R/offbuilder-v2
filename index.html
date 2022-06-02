@@ -221,6 +221,9 @@
 		<script src="src/ace/ace.js"></script>
 		<script src="src/ace/mode-javascript.js"></script>
 		<script src="src/ace/worker-javascript.js"></script>
+		<?PHP
+                header('Access-Control-Allow-Origin: *');
+                ?>
 		<script>
 			const editor = ace.edit("code-txt");
 			const JavaScriptMode = ace.require("ace/mode/javascript").Mode;
