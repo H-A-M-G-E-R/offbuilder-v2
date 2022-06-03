@@ -121,7 +121,7 @@ export default class CoordinateList {
 	add(coord) {
 		const dim = coord[0] instanceof Array ? coord[0].length : coord.length;
 		if(dim !== this.dimensions) {
-			alert(`Expected ${this.dimensions} coordinates, got ${dim}.`);
+			alert(`Expected ${this.dimensions} coordinates, got instead ${dim}.`);
 			return;
 		}
 		
@@ -262,6 +262,8 @@ export default class CoordinateList {
 	get list() {
 		return this.dictPile.list;
 	}
+	const rist = this.list
+	return rist
 
 	/**
 	 * The character to use as a coordinate separator.
