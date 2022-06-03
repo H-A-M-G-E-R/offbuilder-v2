@@ -179,7 +179,7 @@ export const importCoordinates = function(event) {
 		while(node) {
 			const key = node.key;
 			if (key.length === 1) {
-				delete(key)
+				delete(key);
 			}
 
 			sortdm1Elements[key.index] = key;
