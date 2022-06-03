@@ -144,7 +144,7 @@ export const importCoordinates = function(event) {
 
 					// If not, adds the element to the element list and the 
 					// corresponding parent elements.
-					if(duplicate === null && commonElements[dm1Elements.size] != 1) {
+					if(duplicate === null && commonElements.length != 1) {
 						const idx = dm1Elements.size;
 						commonElements.index = idx;
 
@@ -155,7 +155,7 @@ export const importCoordinates = function(event) {
 
 					// Otherwise, only adds the element to the corresponding
 					// parent elements.
-				        else if (duplicate !== null && commonElements[dm1Elements.size] != 1) {
+				        else if (duplicate !== null && commonElements.length != 1) {
 						const idx = duplicate.key.index;
 
 						if(newEl1.indexOf(idx) === -1)
