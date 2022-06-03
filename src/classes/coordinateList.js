@@ -262,8 +262,8 @@ export default class CoordinateList {
 	get list() {
 		return this.dictPile.list;
 	}
-	const rist = this.list
-	return rist
+	const rist = this.list;
+	return rist;
 
 	/**
 	 * The character to use as a coordinate separator.
