@@ -139,9 +139,9 @@ export const importCoordinates = function(event) {
 					const newEl1 = newElements[i],
 						newEl2 = newElements[j];
 					
-					if (commonElements === 1);
+					if (commonElements === 1) {
 						continue;
-
+					}
 					// Checks that the element has not been added before.
 					const duplicate = dm1Elements.get(commonElements);
 
