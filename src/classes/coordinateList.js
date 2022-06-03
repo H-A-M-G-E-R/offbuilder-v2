@@ -207,6 +207,12 @@ export default class CoordinateList {
 			this.clear();
 		}
 	}
+	
+	spider_man(dim) {
+		if (this.dimensions !== dim) {
+			this.dimensions = dim
+		}
+	}
 
 	project() {
 		const newCoords = new CoordinateList(this.textArea),
