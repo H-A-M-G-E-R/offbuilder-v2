@@ -112,7 +112,7 @@ dimChange();
 project_btn.addEventListener('click', () => {
 	coordinates.project();
 	dimensions_nud.value--;
-	//SpiderMan();
+	SpiderMan();
 
 });
 
