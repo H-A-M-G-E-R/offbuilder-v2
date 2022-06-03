@@ -98,7 +98,10 @@ dimChange();
 project_btn.addEventListener('click', () => {
 	coordinates.project();
 	dimensions_nud.value--;
-	spider_man();
+	const value = Number(dimensions_nud.value);
+	coordinates.spider_man();
+	project_btn.value = `Project to ${value - 1}D`;
+
 });
 
 // On code textbox keydown.
