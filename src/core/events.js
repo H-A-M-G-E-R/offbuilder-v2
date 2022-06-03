@@ -96,9 +96,9 @@ dimChange();
 
 // On project button click.
 project_btn.addEventListener('click', () => {
-	coordinates.project();
 	dimensions_nud.value--;
 	dimChange();
+	coordinates.project();
 });
 
 // On code textbox keydown.
