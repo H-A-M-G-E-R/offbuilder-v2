@@ -90,7 +90,20 @@ function dimChange() {
 	
 	for(let i = 0; i < coordinates.permutations.length; i++)
 		configCheckboxes('prm', i);
+
+function SpiderMan() {
+	const value = Number(dimensions_nud.value);
+
+	coordinates.spider_man(value);
+	project_btn.value = `Project to ${value - 1}D`;
+
+	for(let i = 0; i < coordinates.signChanges.length; i++)
+		configCheckboxes('sgn', i);
+	
+	for(let i = 0; i < coordinates.permutations.length; i++)
+		configCheckboxes('prm', i);
 }
+
 dimensions_nud.addEventListener('input', dimChange);
 dimChange();
 
@@ -98,9 +111,7 @@ dimChange();
 project_btn.addEventListener('click', () => {
 	coordinates.project();
 	dimensions_nud.value--;
-	const value = Number(dimensions_nud.value);
-	coordinates.spider_man();
-	project_btn.value = `Project to ${value - 1}D`;
+	SpiderMan();
 
 });
 
