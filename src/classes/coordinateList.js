@@ -233,11 +233,6 @@ export default class CoordinateList {
 				row[j] = 0;
 		}
 
-		for(const key in this.dictionary)
-			newCoords.push(_project(this.dictionary[key]));
-		
-		this.dictionary = newCoords.dictionary;
-
 		function _project(point) {
 			const res = [];
 
@@ -251,6 +246,12 @@ export default class CoordinateList {
 
 			return res;
 		}
+		
+		for(const key in this.dictionary)
+			newCoords.push(_project(this.dictionary[key]));
+		
+		this.dictionary = newCoords.dictionary;
+
 	}
 
 	get list() {
