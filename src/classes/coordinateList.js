@@ -241,6 +241,7 @@ export default class CoordinateList {
 
 		for(const key in this.dictionary)
 			newCoords.push(_project(this.dictionary[key]));
+		return newCoords
 		
 		this.dictionary = newCoords.dictionary;
 
@@ -262,8 +263,6 @@ export default class CoordinateList {
 	get list() {
 		return this.dictPile.list;
 	}
-	const rist = this.list;
-	return rist;
 
 	/**
 	 * The character to use as a coordinate separator.
