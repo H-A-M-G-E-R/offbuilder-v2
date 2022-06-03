@@ -241,7 +241,6 @@ export default class CoordinateList {
 
 		for(const key in this.dictionary)
 			newCoords.push(_project(this.dictionary[key]));
-		return newCoords
 		
 		this.dictionary = newCoords.dictionary;
 
