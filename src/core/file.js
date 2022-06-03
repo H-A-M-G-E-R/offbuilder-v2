@@ -180,6 +180,8 @@ export const importCoordinates = function(event) {
 			const key = node.key;
 			if (key.length === 1) {
 				delete(key);
+				let node = dm1Elements.findMinimumNode();
+				const key = node.key;
 			}
 
 			sortdm1Elements[key.index] = key;
