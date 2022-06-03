@@ -90,6 +90,7 @@ function dimChange() {
 	
 	for(let i = 0; i < coordinates.permutations.length; i++)
 		configCheckboxes('prm', i);
+}
 
 function SpiderMan() {
 	const value = Number(dimensions_nud.value);
