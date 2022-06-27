@@ -128,7 +128,7 @@ export const importCoordinates = function(event) {
 				// added.
 				const commonElements = common(dElements[i], dElements[j]);
 				if (commonElements.length === 1 && d > 2) {
-					break
+					continue;
                 }
 				// It is possible for two d-elements to share more than d 
 				// elements without them being a common (d - 1)-elements, but 
@@ -180,11 +180,6 @@ export const importCoordinates = function(event) {
 		let node = dm1Elements.findMinimumNode();
 		while(node) {
 			const key = node.key;
-			if (key.length === 1) {
-				delete(key);
-				let node = dm1Elements.findMinimumNode();
-				const key = node.key;
-			}
 
 			sortdm1Elements[key.index] = key;
 			node = dm1Elements.next(node);
