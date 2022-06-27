@@ -127,7 +127,9 @@ export const importCoordinates = function(event) {
 				// attribute is added, specifying the order in which they were
 				// added.
 				const commonElements = common(dElements[i], dElements[j]);
-
+				if (commonElements.length === 1 && d > 2) {
+					break
+                }
 				// It is possible for two d-elements to share more than d 
 				// elements without them being a common (d - 1)-elements, but 
 				// only when d >= 4.
