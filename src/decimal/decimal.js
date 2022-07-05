@@ -4398,7 +4398,7 @@ function clone(obj) {
   Decimal.sin = sin;
   Decimal.sinh = sinh;          // ES6
   Decimal.sqrt = sqrt;
-  Decimal.sqrt = Sqrt;  
+  Decimal.Sqrt = Sqrt;  
   Decimal.sub = sub;
   Decimal.tan = tan;
   Decimal.tanh = tanh;          // ES6
@@ -4777,6 +4777,10 @@ function sinh(x) {
  *
  */
 function sqrt(x) {
+  return new this(x).sqrt();
+}
+
+function Sqrt(x) {
   return new this(x).sqrt();
 }
 
