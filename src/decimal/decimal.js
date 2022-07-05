@@ -87,7 +87,7 @@ var EXP_LIMIT = 9e15,                      // 0 to 9e15
     maxE: EXP_LIMIT,                       // 1 to EXP_LIMIT
 
     // Whether to use cryptographically-secure random number generation, if available.
-    crypto: false                          // true/false
+    crypto: true                          // true/false
   },
 
 
