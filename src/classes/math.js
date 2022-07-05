@@ -34,3 +34,9 @@ export const sin = function(n, d) {
     const res = decimal.sin(tau.times(n).div(d)).toNumber();
     return Math.abs(res) < Number.EPSILON ? 0 : res;
 }
+
+export const tan = function(n, d) {
+    const res = decimal.tan(tau.times(n).div(d)).toNumber();
+    return Math.abs(res) < Number.EPSILON ? 0 : res;
+}
+
