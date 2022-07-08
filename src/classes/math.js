@@ -40,3 +40,6 @@ export const tan = function(n, d) {
     return Math.abs(res) < Number.EPSILON ? 0 : res;
 }
 
+export const sqrt = function(n) {
+    return decimal.sqrt(n).toNumber()
+}

@@ -44,7 +44,7 @@ scale_txt.addEventListener('keydown', event => {
 
 // On insert button click.
 insert_btn.addEventListener('click', () => {
-	coordinates.add(coordinates.parse(in_txt));
+	coordinates.add(coordinates.parse(in_txt.value));
 });
 
 // On clear button click.

@@ -9,6 +9,7 @@ globalThis.sqrt = Math.sqrt;
 globalThis.sin = Math.sin;
 globalThis.cos = Math.cos;
 globalThis.tan = Math.tan;
+globalThis.sqrtF = math.sqrt;
 globalThis.sinF = math.sin;
 globalThis.cosF = math.cos;
 globalThis.tanF = math.tan;
