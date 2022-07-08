@@ -1,5 +1,5 @@
 import * as math from "./classes/math.js";
-import * as Decimal from "./decimal/decimal.js";
+import * as d from "./decimal/decimal.js";
 import "./core/events.js";
 import "./extras/stepPrism.js";
 import "./extras/polygon.js";
