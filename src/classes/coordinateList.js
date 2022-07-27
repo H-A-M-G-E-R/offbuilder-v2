@@ -120,11 +120,6 @@ export default class CoordinateList {
 	 */
 	add(coord) {
 		const dim = coord[0] instanceof Array ? coord[0].length : coord.length;
-		if(dim !== this.dimensions) {
-			alert(`Expected ${this.dimensions} coordinates, got instead ${dim}.`);
-			return;
-		}
-		
 		const _this = this;
 
 		_this.signChanges.forEach(sign => {
