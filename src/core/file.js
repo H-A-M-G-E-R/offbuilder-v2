@@ -136,7 +136,7 @@ export const importCoordinates = function(event) {
 				if(commonElements.length >= d && (d >= 4 || 
 					dimension(
 						commonElements.map(x => [...vertices[x]])
-					) === d - 1
+					) > d - 2
 				)) {
 					const newEl1 = newElements[i],
 						newEl2 = newElements[j];
