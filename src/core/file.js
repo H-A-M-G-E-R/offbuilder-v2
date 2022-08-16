@@ -133,10 +133,10 @@ export const importCoordinates = function(event) {
 				// It is possible for two d-elements to share more than d 
 				// elements without them being a common (d - 1)-elements, but 
 				// only when d >= 4.
-				if(commonElements.length >= d && commonElements >= 1 && (d >= 4 || 
+				if(commonElements.length >= d && (d >= 4 || 
 					dimension(
 						commonElements.map(x => [...vertices[x]])
-					) === d - 1
+					) > d - 2
 				)) {
 					const newEl1 = newElements[i],
 						newEl2 = newElements[j];
