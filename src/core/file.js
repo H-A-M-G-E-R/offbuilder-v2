@@ -289,7 +289,7 @@ export const importCoordinates = function(event) {
  */
 function dimension(matrix) {
 	// Any singular values of the matrix less than this will be counted as 0.
-	const EPS = 1e-6;
+	const EPS = 1e-7;
 
 	// Removes and stores the last row of the matrix.
 	const lastRow = matrix.pop();
