@@ -190,6 +190,26 @@ export const importCoordinates = function(event) {
 		elementList[d - 1] = sortdm1Elements;
 	}
 
+	for(let d = 2; d < dim-1; d++) {
+		for(let i = 0; i < elementList[d].length; i++) {
+			if(elementList[d][i].length < d+1) {
+				elementList[d].splice(i,1);
+				for(let j = 0; j < elementList[d+1].length; j++) {
+					for(let k = 0; k < elementList[d+1][j].length; k++) {
+						if (elementList[d+1][j][k] === i) {
+							elementList[d+1][j].splice(k,1);
+							k--;
+						}
+						if (elementList[d+1][j][k] > i) {
+							elementList[d+1][j][k] = elementList[d+1][j][k]-1;
+						}
+					}
+				}
+				i--;
+			}
+		}
+	}
+
 	// Quick sanity test.
 	if(elementList[dim - 2].length != ridgeCount)
 		alert("WARNING: Ridge count does not match expected value!");
