@@ -294,7 +294,7 @@ export const importCoordinates = function(event) {
 		}
 	}
 
-	save_to_filesystem(txt, 'polytope.off');
+	saveFile(txt, 'polytope.off', 'application/off');
 }
 
 /**
