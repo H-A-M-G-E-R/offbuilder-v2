@@ -344,7 +344,7 @@ function dimension(matrix) {
 				matrix[h] = matrix[pivotIdx];
 				matrix[pivotIdx] = z;
 			}
-			for (i = h+1; i < m; i++) {
+			for (let i = h+1; i < m; i++) {
                 let div = matrix[i][k] / matrix[h][k];
 				matrix[i][k] = 0;
                 for (let j = k + 1; j < n; j++) {
