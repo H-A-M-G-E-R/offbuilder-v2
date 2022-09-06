@@ -4,8 +4,6 @@ import { dimensions_nud, dl_a } from "./domElements.js";
 import coordinates from "./coordinates.js";
 import AvlTree from "../classes/avl.js";
 
-import SVD from '../svd/svd.js';
-
 /**
  * Returns the name for a set of n-elements.
  * 
@@ -179,26 +177,6 @@ export const importCoordinates = function(event) {
 		// Currently, each of the d - 1 elements is storing 
 		elementList[d] = newElements;
 		elementList[d - 1] = sortdm1Elements;
-	}
-
-	for(let d = 2; d < dim-1; d++) {
-		for(let i = 0; i < elementList[d].length; i++) {
-			if(elementList[d][i].length < d+1) {
-				elementList[d].splice(i,1);
-				for(let j = 0; j < elementList[d+1].length; j++) {
-					for(let k = 0; k < elementList[d+1][j].length; k++) {
-						if (elementList[d+1][j][k] === i) {
-							elementList[d+1][j].splice(k,1);
-							k--;
-						}
-						if (elementList[d+1][j][k] > i) {
-							elementList[d+1][j][k] = elementList[d+1][j][k]-1;
-						}
-					}
-				}
-				i--;
-			}
-		}
 	}
 
 	// Quick sanity test.
