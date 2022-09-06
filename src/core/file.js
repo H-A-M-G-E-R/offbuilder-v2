@@ -294,7 +294,7 @@ function dimension(matrix) {
 
 	// Time to do the Gaussian elimination.
 	let rank = 0, h = 0, k = 0, pivotAbs = 0.0, pivotIdx = 0, temp = 0.0;
-	for(; h < m && k < m; k++) {
+	for(; h < m && k < n; k++) {
 		pivotAbs = Math.abs(matrix[h][k]);
 		pivotIdx = h;
 
