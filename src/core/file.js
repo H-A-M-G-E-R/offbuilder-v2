@@ -22,7 +22,7 @@ function elementNames(n) {
 		"Peta", 
 		"Exa",
 		"Zetta",
-		"Yotta" 
+		"Yotta"
 	];
 
 	return names[n] || n + '-element';
@@ -133,11 +133,7 @@ export const importCoordinates = function(event) {
 				// It is possible for two d-elements to share more than d 
 				// elements without them being a common (d - 1)-elements, but 
 				// only when d >= 4.
-				if(commonElements.length >= d && (d >= 4 || 
-					dimension(
-						commonElements.map(x => [...vertices[x]])
-					) > d - 2
-				)) {
+				if(commonElements.length >= d && (d >= 4 || dimension(commonElements.map(x => [...vertices[x]])) > d - 2)) {
 					const newEl1 = newElements[i],
 						newEl2 = newElements[j];
 					
@@ -309,7 +305,7 @@ export const importCoordinates = function(event) {
  */
 function dimension(matrix) {
 	// Any singular values of the matrix less than this will be counted as 0.
-	const EPS = 1e-7;
+	const EPS = 1e-6;
 
 	// Removes and stores the last row of the matrix.
 	const lastRow = matrix.pop();
@@ -323,22 +319,42 @@ function dimension(matrix) {
 		for(let j = 0; j < n; j++)
 			matrix[i][j] -= lastRow[j];	
 
-	// If the matrix is wider than it is tall, it transposes it so that the SVD
-	// algorithm can process it.
-	if(m < n) {
-		const newMatrix = new Array(n).fill(0).map(() => new Array(m));
+	// Time to do the Gaussian elimination.
+	let rank = 0, h = 0, k = 0, pivotAbs = 0.0, pivotIdx = 0, temp = 0.0;
+	for(; h < m && k < m; k++) {
+		pivotAbs = Math.abs(matrix[h][k]);
+		pivotIdx = h;
 
-		for(let i = 0; i < m; i++)
-			for(let j = 0; j < n; j++)
-				newMatrix[j][i] = matrix[i][j];
-		
-		matrix = newMatrix;
+		// Find pivot
+		for(i = h; i < m; i++) {
+			temp = Math.abs(matrix[i][k]);
+			if(temp > pivotAbs) {
+				pivotAbs = temp;
+				pivotIdx = i;
+			}
+		}
+		// if pivot equals 0 move to next column
+		if(pivotAbs < EPS) {
+			continue;
+		} else {
+			rank++;
+			if(pivotIdx != h) {
+				// Swap rows
+				let z = matrix[h];
+				matrix[h] = matrix[pivotIdx];
+				matrix[pivotIdx] = z;
+			}
+			for (i = h+1; i < m; i++) {
+                let div = matrix[i][k] / matrix[h][k];
+				matrix[i][k] = 0;
+                for (j = k + 1; j < n; j++) {
+                        matrix[i][j] -= matrix[h][j] * div;
+                }
+            }
+		}
+		h++;
 	}
 
-	// The rank is the amount of singular values that are either NaN or less 
-	// than epsilon.
-	let rank = 0;
-	SVD(matrix).q.forEach((x) => {if(!(x <= EPS)) rank++;});
 	return rank;
 }
 
