@@ -112,7 +112,7 @@ export const importCoordinates = function(event) {
 
 		// Two d-dimensional elements have a common face iff they have at least
 		// d common vertices and are not contained in (d - 2)-dimensional space.
-		for(let i = 0; i < len; i++) {
+		for(let i = 0; i < len - 1; i++) {
 			// For very short calculations, logs progress every 5s.
 			if(Date.now() - time > 0) {
 				console.log(`Dimension: ${d}. Progress: ${iter / total}%.`);
@@ -127,25 +127,20 @@ export const importCoordinates = function(event) {
 				// attribute is added, specifying the order in which they were
 				// added.
 				const commonElements = common(dElements[i], dElements[j]);
-				if (commonElements.length === 1 && d > 2) {
-					continue;
-                }
+
 				// It is possible for two d-elements to share more than d 
 				// elements without them being a common (d - 1)-elements, but 
 				// only when d >= 4.
-				if(commonElements.length >= d && (d >= 4 || dimension(commonElements.map(x => [...vertices[x]])) > d - 2)) {
+				if(commonElements.length >= d && (d >= 4 || dimension(commonElements.map(x => [...vertices[x]])) === d - 1)) {
 					const newEl1 = newElements[i],
 						newEl2 = newElements[j];
 					
-					if (commonElements === 1) {
-						continue;
-					}
 					// Checks that the element has not been added before.
 					const duplicate = dm1Elements.get(commonElements);
 
 					// If not, adds the element to the element list and the 
 					// corresponding parent elements.
-					if(duplicate === null && commonElements.length != 1) {
+					if(duplicate === null) {
 						const idx = dm1Elements.size;
 						commonElements.index = idx;
 
@@ -156,7 +151,7 @@ export const importCoordinates = function(event) {
 
 					// Otherwise, only adds the element to the corresponding
 					// parent elements.
-				        else if (duplicate !== null && commonElements.length != 1) {
+				        else if (duplicate !== null) {
 						const idx = duplicate.key.index;
 
 						if(newEl1.indexOf(idx) === -1)
@@ -344,10 +339,10 @@ function dimension(matrix) {
 				matrix[h] = matrix[pivotIdx];
 				matrix[pivotIdx] = z;
 			}
-			for (let i = h+1; i < m; i++) {
+			for(let i = h+1; i < m; i++) {
                 let div = matrix[i][k] / matrix[h][k];
 				matrix[i][k] = 0;
-                for (let j = k + 1; j < n; j++) {
+                for(let j = k + 1; j < n; j++) {
                         matrix[i][j] -= matrix[h][j] * div;
                 }
             }
