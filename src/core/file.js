@@ -326,7 +326,7 @@ function dimension(matrix) {
 		pivotIdx = h;
 
 		// Find pivot
-		for(i = h; i < m; i++) {
+		for(let i = h; i < m; i++) {
 			temp = Math.abs(matrix[i][k]);
 			if(temp > pivotAbs) {
 				pivotAbs = temp;
@@ -347,7 +347,7 @@ function dimension(matrix) {
 			for (i = h+1; i < m; i++) {
                 let div = matrix[i][k] / matrix[h][k];
 				matrix[i][k] = 0;
-                for (j = k + 1; j < n; j++) {
+                for (let j = k + 1; j < n; j++) {
                         matrix[i][j] -= matrix[h][j] * div;
                 }
             }
