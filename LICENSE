@@ -1,6 +1,135 @@
 MIT License
 
-Copyright (c) 2020 OFFBuilder authors
+Copyright (c) 2022 
+Rayo's number
+From Wikipedia, the free encyclopedia
+Jump to navigationJump to search
+Rayo's number is a large number named after Mexican associate professor Agustín Rayo which has been claimed to be the largest named number.[1][2] It was originally defined in a "big number duel" at MIT on 26 January 2007.[3][4]
+
+
+Contents
+1	Definition
+2	Explanation
+3	Examples
+4	References
+Definition
+The definition of Rayo's number is a variation on the definition:[5]
+
+The smallest number bigger than any finite number named by an expression in the language of first-order set theory with a googol symbols or less.
+
+Specifically, an initial version of the definition, which was later clarified, read "The smallest number bigger than any number that can be named by an expression in the language of first-order set-theory with less than a googol (10100) symbols."[4]
+
+The formal definition of the number uses the following second-order formula, where [φ] is a Gödel-coded formula and s is a variable assignment:[5]
+
+For all R {
+{for any (coded) formula [ψ] and any variable assignment t
+(R([ψ],t) ↔
+(([ψ] = "xi ∈ xj" ∧ t(xi) ∈ t(xj)) ∨
+([ψ] = "xi = xj" ∧ t(xi) = t(xj)) ∨
+([ψ] = "(~θ)" ∧ ∼R([θ],t)) ∨
+([ψ] = "(θ∧ξ)" ∧ R([θ],t) ∧ R([ξ],t)) ∨
+([ψ] = "∃xi (θ)" and, for some an xi-variant t' of t, R([θ],t'))
+)}   →
+R([φ],s)}
+
+Given this formula, Rayo's number is defined as:[5]
+
+The smallest number bigger than every finite number m with the following property: there is a formula φ(x1) in the language of first-order set-theory (as presented in the definition of Sat) with less than a googol symbols and x1 as its only free variable such that: (a) there is a variable assignment s assigning m to x1 such that Sat([φ(x1)],s), and (b) for any variable assignment t, if Sat([φ(x1)],t), then t assigns m to x1.
+
+Explanation
+Intuitively, Rayo's number is defined in a formal language, such that:
+
+"xi∈xj" and "xi=xj" are atomic formulas.
+If θ is a formula, then "(~θ)" is a formula (the negation of θ).
+If θ and ξ are formulas, then "(θ∧ξ)" is a formula (the conjunction of θ and ξ).
+If θ is a formula, then "∃xi(θ)" is a formula (existential quantification).
+Notice that it is not allowed to eliminate parenthesis. For instance, one must write "∃xi((~θ))" instead of "∃xi(~θ)".
+
+It is possible to express the missing logical connectives in this language. For instance:
+
+Disjunction: "(θ∨ξ)" as "(~((~θ)∧(~ξ)))".
+Implication: "(θ⇒ξ)" as "(~(θ∧(~ξ)))".
+Biconditional: "(θ⇔ξ)" as "((~(θ∧ξ))∧(~((~θ)∧(~ξ))))".
+Universal quantification: "∀xi(θ)" as "(~∃xi((~θ)))".
+The definition concerns formulas in this language that have only one free variable, specifically x1. If a formula with length n is satisfied iff x1 is equal to the finite von Neumann ordinal k, we say such a formula is a "Rayo string" for k, and that k is "Rayo-nameable" in n symbols. Then, Rayo(n) is defined as the smallest k greater than all numbers Rayo-nameable in at most n symbols.
+
+Examples
+To Rayo-name 0, which is the empty set, one can write "(¬∃x2(x2∈x1))", which has 10 symbols. It can be shown that this is the optimal Rayo string for 0.[citation needed] Similarly, (∃x2(x2∈x1)∧(¬∃x2((x2∈x1∧∃x3(x3∈x2))))), which has 30 symbols, is the optimal string for 1.[citation needed] Therefore, Rayo(n)=0 for 0≤n<10, and Rayo(n)=1 for 10≤n<30.
+
+Additionally, it can be shown that Rayo(34+20n)>n and Rayo(260+20n)>n2.[citation needed]
+
+References
+ "CH. Rayo's Number". The Math Factor Podcast. Retrieved 24 March 2014.
+ Kerr, Josh (7 December 2013). "Name the biggest number contest". Archived from the original on 20 March 2016. Retrieved 27 March 2014.
+ Elga, Adam. "Large Number Championship" (PDF). Archived from the original (PDF) on 14 July 2019. Retrieved 24 March 2014.
+ Manzari, Mandana; Nick Semenkovich (31 January 2007). "Profs Duke It Out in Big Number Duel". The Tech. Retrieved 24 March 2014.
+ Rayo, Agustín. "Big Number Duel". Retrieved 24 March 2014.
+vte
+Large numbers
+Examples in
+numerical order	
+ThousandTen thousandHundred thousandMillionTen millionHundred millionBillionTrillionQuadrillionQuintillionSextillionSeptillionOctillionNonillionDecillionEddington numberGoogolShannon numberGoogolplexSkewes's numberMoser's numberGraham's numberTREE(3)SSCG(3)BH(3)Rayo's numberTransfinite numbers
+Expression
+methods	
+Notations	
+Scientific notationKnuth's up-arrow notationConway chained arrow notationSteinhaus–Moser notation
+Operators	
+Hyperoperation TetrationPentationAckermann functionGrzegorczyk hierarchyFast-growing hierarchy
+Related articles
+(alphabetical order)
+Extended real number lineIndefinite and fictitious numbersInfinitesimalLargest known prime numberList of numbersLong and short scalesNumber systemsNumber namesOrders of magnitudePower of twoPower of threePower of 10Sagan Unit
+NamesHistory
+Categories: Large integers
+Navigation menu
+Not logged in
+Talk
+Contributions
+Create account
+Log in
+ArticleTalk
+ReadEditView history
+Search
+Search Wikipedia
+Main page
+Contents
+Current events
+Random article
+About Wikipedia
+Contact us
+Donate
+Contribute
+Help
+Learn to edit
+Community portal
+Recent changes
+Upload file
+Tools
+What links here
+Related changes
+Special pages
+Permanent link
+Page information
+Cite this page
+Wikidata item
+Print/export
+Download as PDF
+Printable version
+
+Languages
+Español
+Français
+한국어
+Italiano
+日本語
+Português
+Русский
+Türkçe
+中文
+4 more
+Edit links
+This page was last edited on 22 September 2022, at 16:54 (UTC).
+Text is available under the Creative Commons Attribution-ShareAlike License 3.0; additional terms may apply. By using this site, you agree to the Terms of Use and Privacy Policy. Wikipedia® is a registered trademark of the Wikimedia Foundation, Inc., a non-profit organization.
+Privacy policyAbout WikipediaDisclaimersContact WikipediaMobile viewDevelopersStatisticsCookie statementWikimedia FoundationPowered by MediaWiki
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
