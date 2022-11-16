@@ -179,9 +179,24 @@ export const importCoordinates = function(event) {
 		elementList[d - 1] = sortdm1Elements;
 	}
 
-	// Quick sanity test.
-	if(elementList[dim - 2].length != ridgeCount)
-		alert("WARNING: Ridge count does not match expected value!");
+	let EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE = true;
+
+	// Sainity test.
+	let euler = vertices.length;
+	for (let i = 1; i < elementList.length; i++) {
+		if (i % 2 == 0) {
+			euler += elementList[i].length;
+		} else {
+			euler -= elementList[i].length;
+		}
+	}
+	let y = 0;
+	if (dim % 2 == 1)
+	    y = 2
+	if(i != y){
+		alert("WARNING: Euler characteristic does not match expected value!");
+		EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE = false;
+	}
 
 	const edges = elementList[1],
 		faces = elementList[2];
@@ -210,60 +225,62 @@ export const importCoordinates = function(event) {
 		faces[f] = linkedList[edges[face[0]][0]].getCycle();
 	}
 
-	// Writes the OFF file.
+	if (EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE) {
+		// Writes the OFF file.
 
-	// nOFF
-	let txt = '';
-	if(dim != 3)
-		txt += dim;
-	txt += 'OFF' + newline;
+		// nOFF
+		let txt = '';
+		if(dim != 3)
+			txt += dim;
+		txt += 'OFF' + newline;
 
-	// # Vertices, Faces, Edges, ...
-	txt += '# ' + elementNames(0);
-	if(dim >= 3)
-		txt += ', ' + elementNames(2);
-	if(dim >= 2)
-		txt += ', ' + elementNames(1);
-	for(let i = 3; i < dim; i++)
-		txt += ', ' + elementNames(i);
-	txt += newline;
-
-	// The corresponding numbers.
-	txt += vertices.length;
-	if(dim >= 3)
-		txt += ' ' + faces.length;
-	if(dim >= 2)
-		txt += ' ' + edges.length;
-	for(let i = 3; i < dim; i++)
-		txt += ' ' + elementList[i].length;
-	txt += newline + newline;
-
-	// Vertices.
-	txt += '# ' + elementNames(0) + newline;
-	for(let i = 0; i < vertices.length; i++) {
-		const vertex = vertices[i];
-		txt += vertex[0];
-
-		for(let j = 1; j < dim; j++)
-			txt += ' ' + vertex[j];
+		// # Vertices, Faces, Edges, ...
+		txt += '# ' + elementNames(0);
+		if(dim >= 3)
+			txt += ', ' + elementNames(2);
+		if(dim >= 2)
+			txt += ', ' + elementNames(1);
+		for(let i = 3; i < dim; i++)
+			txt += ', ' + elementNames(i);
 		txt += newline;
-	}
 
-	// The rest of the elements.
-	for(let d = 2; d < dim; d++) {
-		txt += newline + '# ' + elementNames(d) + newline;
-		for(let i = 0; i < elementList[d].length; i++) {
-			const el = elementList[d][i];
-			let len = el.length;
-			txt += len;
+		// The corresponding numbers.
+		txt += vertices.length;
+		if(dim >= 3)
+			txt += ' ' + faces.length;
+		if(dim >= 2)
+			txt += ' ' + edges.length;
+		for(let i = 3; i < dim; i++)
+			txt += ' ' + elementList[i].length;
+		txt += newline + newline;
 
-			for(let j = 0; j < len; j++)
-				txt += ' ' + el[j];
+		// Vertices.
+		txt += '# ' + elementNames(0) + newline;
+		for(let i = 0; i < vertices.length; i++) {
+			const vertex = vertices[i];
+			txt += vertex[0];
+
+			for(let j = 1; j < dim; j++)
+				txt += ' ' + vertex[j];
 			txt += newline;
 		}
-	}
 
-	saveFile(txt, 'polytope.off', 'application/off');
+		// The rest of the elements.
+		for(let d = 2; d < dim; d++) {
+			txt += newline + '# ' + elementNames(d) + newline;
+			for(let i = 0; i < elementList[d].length; i++) {
+				const el = elementList[d][i];
+				let len = el.length;
+				txt += len;
+
+				for(let j = 0; j < len; j++)
+					txt += ' ' + el[j];
+				txt += newline;
+			}
+		}
+
+		saveFile(txt, 'polytope.off', 'application/off');
+    }
 }
 
 /**
@@ -387,9 +404,10 @@ function common(el1, el2) {
  */
 function faceCompare(el1, el2) {
 	const len = Math.min(el1.length, el2.length);
-	for(let i = 0; i < len; i++)
-		if(el1[i] !== el2[i])
-			return el1[i] - el2[i];
+	if(el1.length === el2.length)
+		for(let i = 0; i < len; i++)
+			if(el1[i] !== el2[i])
+				return el1[i] - el2[i];
 
 	return el1.length - el2.length;		
 }
