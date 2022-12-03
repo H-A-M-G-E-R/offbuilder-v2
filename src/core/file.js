@@ -404,10 +404,9 @@ function common(el1, el2) {
  */
 function faceCompare(el1, el2) {
 	const len = Math.min(el1.length, el2.length);
-	if(el1.length === el2.length)
-		for(let i = 0; i < len; i++)
-			if(el1[i] !== el2[i])
-				return el1[i] - el2[i];
+	for(let i = 0; i < len; i++)
+		if(el1[i] !== el2[i])
+			return el1[i] - el2[i];
 
 	return el1.length - el2.length;		
 }
