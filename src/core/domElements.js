@@ -4,7 +4,6 @@
 
 export const clear_btn = document.getElementById('clear-btn');
 export const code_txt = document.getElementById('code-txt');
-export const copy_btn = document.getElementById('copy-btn');
 export const dimensions_nud = document.getElementById('dimensions-nud');
 export const dl_a = document.getElementById('dl-a');
 export const export_btn = document.getElementById('export-btn');

@@ -9,7 +9,6 @@ import {
 	insert_btn, 
 	clear_btn, 
 	code_txt, 
-	copy_btn, 
 	dimensions_nud, 
 	export_btn, 
 	import_btn, 
@@ -50,14 +49,6 @@ insert_btn.addEventListener('click', () => {
 // On clear button click.
 clear_btn.addEventListener('click', () => {
 	coordinates.clear();
-});
-
-// On copy button click.
-copy_btn.addEventListener('click', () => {
-	out_txt.select();
-	out_txt.setSelectionRange(0, 999999);
-
-	document.execCommand("copy");
 });
 
 //On export button click.
